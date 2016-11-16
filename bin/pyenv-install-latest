@@ -1,0 +1,51 @@
+#!/usr/bin/env bash
+# Usage: pyenv install-latest [<`pyenv install` options>] [<version-prefix>]
+set -e
+[ -n "$PYENV_DEBUG" ] && set -b
+
+PYENV_INSTALL_LATEST_VERSION="0.1.0"
+DEFAULT_QUERY="[0-9]"
+
+# Provide pyenv completions
+if [ "$1" = "--complete" ]; then
+  pyenv install --complete
+  exit
+fi
+
+get_version() {
+  local query=$1
+  [[ -z $query ]] && query=$DEFAULT_QUERY
+  pyenv install --list \
+    | grep -vE "(^Available versions:|-src|dev|rc|alpha|beta|b[0-9]+)" \
+    | grep -E "^\s*$query" \
+    | sed 's/^\s\+//' \
+    | tail -1
+}
+
+version() {
+  echo "pyenv-install-latest ${PYENV_INSTALL_LATEST_VERSION}"
+}
+
+for arg; do
+  case "$arg" in
+    --version|version)
+      version
+      exit 0
+      ;;
+    --help|help)
+      pyenv-help install-latest
+      exit 0
+      ;;
+    -*)
+      install_args="$install_args $arg"
+      shift
+  esac
+done
+
+latest=$(get_version $1)
+[[ -z $latest ]] && { echo "Python version is not found." >&2; exit 1; }
+echo "Install $latest..."
+pyenv install $install_args $latest
+
+
+
