@@ -16,7 +16,7 @@ get_version() {
   local query=$1
   [[ -z $query ]] && query=$DEFAULT_QUERY
   pyenv install --list \
-    | grep -vE "(^Available versions:|-src|dev|rc|alpha|beta|b[0-9]+)" \
+    | grep -vE "(^Available versions:|-src|dev|rc|alpha|beta|(a|b)[0-9]+)" \
     | grep -E "^\s*$query" \
     | sed 's/^\s\+//' \
     | tail -1
