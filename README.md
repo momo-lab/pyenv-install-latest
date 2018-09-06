@@ -4,7 +4,7 @@ This [pyenv](https://github.com/yyuu/pyenv) plugin to install the latest version
 
 ## Usage
 
-     pyenv install-latest [<`pyenv install` options>] [<version-prefix>]
+     pyenv install-latest [--print] [<`pyenv install` options>] [<version-prefix>]
 
 ## Installation
 
@@ -32,4 +32,8 @@ Install 2.7-based version of Python.
     Installing Python-2.7.12...
     Installed Python-2.7.12 to /home/username/.pyenv/versions/2.7.12
 
+Print, but not install the latest 2.7-based version of Python
 
+    $ pyenv install-latest --print 2.7
+    2.7.15
+    
