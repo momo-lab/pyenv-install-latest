@@ -39,7 +39,7 @@ for arg; do
     --print)
       shift
       latest=$(get_version $1)
-      [[ -z $latest ]] && exit 1;
+      [[ -z $latest ]] && { echo "Python version is not found." >&2; exit 1; }
       echo $latest
       exit 0
       ;;
