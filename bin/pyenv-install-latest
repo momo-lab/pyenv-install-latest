@@ -36,6 +36,13 @@ for arg; do
       pyenv-help install-latest
       exit 0
       ;;
+    --print)
+      shift
+      latest=$(get_version $1)
+      [[ -z $latest ]] && exit 1;
+      echo $latest
+      exit 0
+      ;;
     -*)
       install_args="$install_args $arg"
       shift
