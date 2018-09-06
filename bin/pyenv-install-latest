@@ -3,7 +3,7 @@
 set -e
 [ -n "$PYENV_DEBUG" ] && set -b
 
-PYENV_INSTALL_LATEST_VERSION="0.1.0"
+PYENV_INSTALL_LATEST_VERSION="0.2.0"
 DEFAULT_QUERY="[0-9]"
 
 # Provide pyenv completions
