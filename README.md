@@ -1,3 +1,5 @@
+This plugin is deprecated. Please use [xxenv-latest](https://github.com/momo-lab/xxenv-latest)
+
 # pyenv-install-latest
 
 This [pyenv](https://github.com/yyuu/pyenv) plugin to install the latest version of Python.
