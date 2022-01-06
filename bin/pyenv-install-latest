@@ -19,7 +19,8 @@ get_version() {
     | grep -vE "(^Available versions:|-src|dev|rc|alpha|beta|(a|b)[0-9]+)" \
     | grep -E "^\s*$query" \
     | sed 's/^\s\+//' \
-    | tail -1
+    | tail -1 \
+    | xargs
 }
 
 version() {
