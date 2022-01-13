@@ -4,7 +4,7 @@ set -e
 [ -n "$PYENV_DEBUG" ] && set -b
 
 PYENV_INSTALL_LATEST_VERSION="0.2.0"
-DEFAULT_QUERY="[0-9]"
+DEFAULT_QUERY="[0-9]+"
 
 # Provide pyenv completions
 if [ "$1" = "--complete" ]; then
